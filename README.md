@@ -1,10 +1,10 @@
 RabbitMQ Queue driver for Laravel
 ======================
-[![Latest Stable Version](https://poser.pugx.org/vladimir-yuldashev/laravel-queue-rabbitmq/v/stable?format=flat-square)](https://packagist.org/packages/vladimir-yuldashev/laravel-queue-rabbitmq)
+[![Latest Stable Version](https://poser.pugx.org/botika/laravel-queue-rabbitmq/v/stable?format=flat-square)](https://packagist.org/packages/botika/laravel-queue-rabbitmq)
 [![Build Status](https://github.com/vyuldashev/laravel-queue-rabbitmq/workflows/Tests/badge.svg)](https://github.com/vyuldashev/laravel-queue-rabbitmq/actions)
-[![Total Downloads](https://poser.pugx.org/vladimir-yuldashev/laravel-queue-rabbitmq/downloads?format=flat-square)](https://packagist.org/packages/vladimir-yuldashev/laravel-queue-rabbitmq)
+[![Total Downloads](https://poser.pugx.org/botika/laravel-queue-rabbitmq/downloads?format=flat-square)](https://packagist.org/packages/botika/laravel-queue-rabbitmq)
 [![StyleCI](https://styleci.io/repos/14976752/shield)](https://styleci.io/repos/14976752)
-[![License](https://poser.pugx.org/vladimir-yuldashev/laravel-queue-rabbitmq/license?format=flat-square)](https://packagist.org/packages/vladimir-yuldashev/laravel-queue-rabbitmq)
+[![License](https://poser.pugx.org/botika/laravel-queue-rabbitmq/license?format=flat-square)](https://packagist.org/packages/botika/laravel-queue-rabbitmq)
 
 ## Support Policy
 
@@ -19,7 +19,7 @@ Only the latest version will get new features. Bug fixes will be provided using 
 You can install this package via composer using this command:
 
 ```
-composer require vladimir-yuldashev/laravel-queue-rabbitmq
+composer require botika/laravel-queue-rabbitmq
 ```
 
 The package will automatically register itself.
