@@ -88,7 +88,7 @@ class Consumer extends Worker
         $this->channel->basic_qos(
             $this->prefetchSize,
             $this->prefetchCount,
-            null
+            false
         );
 
         $jobClass = $connection->getJobClass();
@@ -147,7 +147,7 @@ class Consumer extends Worker
             } catch (AMQPRuntimeException $exception) {
                 $this->exceptions->report($exception);
 
-                $this->kill(1);
+                $this->kill(self::EXIT_ERROR, $options);
             } catch (Exception|Throwable $exception) {
                 $this->exceptions->report($exception);
 
@@ -171,7 +171,7 @@ class Consumer extends Worker
             );
 
             if (! is_null($status)) {
-                return $this->stop($status);
+                return $this->stop($status, $options);
             }
 
             $this->currentJob = null;
