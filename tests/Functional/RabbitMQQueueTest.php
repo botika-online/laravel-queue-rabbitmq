@@ -1,11 +1,11 @@
 <?php
 
-namespace VladimirYuldashev\LaravelQueueRabbitMQ\Tests\Functional;
+namespace Botika\LaravelQueueRabbitMQ\Tests\Functional;
 
 use Illuminate\Support\Str;
 use PhpAmqpLib\Exchange\AMQPExchangeType;
-use VladimirYuldashev\LaravelQueueRabbitMQ\Queue\RabbitMQQueue;
-use VladimirYuldashev\LaravelQueueRabbitMQ\Tests\Functional\TestCase as BaseTestCase;
+use Botika\LaravelQueueRabbitMQ\Queue\RabbitMQQueue;
+use Botika\LaravelQueueRabbitMQ\Tests\Functional\TestCase as BaseTestCase;
 
 class RabbitMQQueueTest extends BaseTestCase
 {

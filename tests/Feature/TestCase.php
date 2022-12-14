@@ -1,15 +1,15 @@
 <?php
 
-namespace VladimirYuldashev\LaravelQueueRabbitMQ\Tests\Feature;
+namespace Botika\LaravelQueueRabbitMQ\Tests\Feature;
 
 use Illuminate\Database\DatabaseTransactionsManager;
 use Illuminate\Support\Facades\Queue;
 use Illuminate\Support\Str;
 use PhpAmqpLib\Exception\AMQPProtocolChannelException;
 use RuntimeException;
-use VladimirYuldashev\LaravelQueueRabbitMQ\Queue\Jobs\RabbitMQJob;
-use VladimirYuldashev\LaravelQueueRabbitMQ\Tests\Mocks\TestJob;
-use VladimirYuldashev\LaravelQueueRabbitMQ\Tests\TestCase as BaseTestCase;
+use Botika\LaravelQueueRabbitMQ\Queue\Jobs\RabbitMQJob;
+use Botika\LaravelQueueRabbitMQ\Tests\Mocks\TestJob;
+use Botika\LaravelQueueRabbitMQ\Tests\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {

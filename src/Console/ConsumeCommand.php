@@ -1,10 +1,10 @@
 <?php
 
-namespace VladimirYuldashev\LaravelQueueRabbitMQ\Console;
+namespace Botika\LaravelQueueRabbitMQ\Console;
 
 use Illuminate\Queue\Console\WorkCommand;
 use Illuminate\Support\Str;
-use VladimirYuldashev\LaravelQueueRabbitMQ\Consumer;
+use Botika\LaravelQueueRabbitMQ\Consumer;
 
 class ConsumeCommand extends WorkCommand
 {

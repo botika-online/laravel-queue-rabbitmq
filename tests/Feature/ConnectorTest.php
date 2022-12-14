@@ -1,13 +1,13 @@
 <?php
 
-namespace VladimirYuldashev\LaravelQueueRabbitMQ\Tests\Feature;
+namespace Botika\LaravelQueueRabbitMQ\Tests\Feature;
 
 use Illuminate\Queue\QueueManager;
 use PhpAmqpLib\Connection\AMQPLazyConnection;
 use PhpAmqpLib\Connection\AMQPSSLConnection;
-use VladimirYuldashev\LaravelQueueRabbitMQ\Queue\RabbitMQQueue;
+use Botika\LaravelQueueRabbitMQ\Queue\RabbitMQQueue;
 
-class ConnectorTest extends \VladimirYuldashev\LaravelQueueRabbitMQ\Tests\TestCase
+class ConnectorTest extends \Botika\LaravelQueueRabbitMQ\Tests\TestCase
 {
     public function testLazyConnection(): void
     {

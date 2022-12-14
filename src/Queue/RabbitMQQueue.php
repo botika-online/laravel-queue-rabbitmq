@@ -2,7 +2,7 @@
 
 /** @noinspection PhpRedundantCatchClauseInspection */
 
-namespace VladimirYuldashev\LaravelQueueRabbitMQ\Queue;
+namespace Botika\LaravelQueueRabbitMQ\Queue;
 
 use ErrorException;
 use Exception;
@@ -21,7 +21,7 @@ use PhpAmqpLib\Exchange\AMQPExchangeType;
 use PhpAmqpLib\Message\AMQPMessage;
 use PhpAmqpLib\Wire\AMQPTable;
 use Throwable;
-use VladimirYuldashev\LaravelQueueRabbitMQ\Queue\Jobs\RabbitMQJob;
+use Botika\LaravelQueueRabbitMQ\Queue\Jobs\RabbitMQJob;
 
 class RabbitMQQueue extends Queue implements QueueContract
 {
@@ -187,7 +187,7 @@ class RabbitMQQueue extends Queue implements QueueContract
     public function laterRaw($delay, $payload, $queue = null, $attempts = 0)
     {
         $ttl = $this->secondsUntil($delay) * 1000;
-        
+
         // default options
         $options = ['delay' => $delay, 'attempts' => $attempts];
 
@@ -195,7 +195,7 @@ class RabbitMQQueue extends Queue implements QueueContract
         if ($ttl <= 0) {
             return $this->pushRaw($payload, $queue, $options);
         }
-        
+
         // Create a main queue to handle delayed messages
         [$mainDestination, $exchange, $exchangeType, $attempts] = $this->publishProperties($queue, $options);
         $this->declareDestination($mainDestination, $exchange, $exchangeType);
