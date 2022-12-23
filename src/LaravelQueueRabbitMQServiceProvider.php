@@ -7,6 +7,7 @@ use Illuminate\Queue\QueueManager;
 use Illuminate\Support\ServiceProvider;
 use Botika\LaravelQueueRabbitMQ\Console\ConsumeCommand;
 use Botika\LaravelQueueRabbitMQ\Queue\Connectors\RabbitMQConnector;
+use PhpAmqpLib\Connection\AMQPStreamConnection;
 
 class LaravelQueueRabbitMQServiceProvider extends ServiceProvider
 {
@@ -69,7 +70,11 @@ class LaravelQueueRabbitMQServiceProvider extends ServiceProvider
         $queue = $this->app['queue'];
 
         $queue->addConnector('rabbitmq', function () {
-            return new RabbitMQConnector($this->app['events']);
+            /** @var \PhpAmqpLib\Connection\AbstractConnection $connection */
+            $connection = config('queue.connections.rabbitmq.connection', \PhpAmqpLib\Connection\AMQPLazyConnection::class)::create_connection(
+                config('queue.connections.rabbitmq.hosts', [])
+            );
+            return new RabbitMQConnector($this->app['events'], $connection);
         });
     }
 }

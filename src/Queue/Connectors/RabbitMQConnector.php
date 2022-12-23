@@ -23,9 +23,18 @@ class RabbitMQConnector implements ConnectorInterface
      */
     private $dispatcher;
 
-    public function __construct(Dispatcher $dispatcher)
+    private $connection;
+
+    /**
+     * Constructor
+     *
+     * @param Dispatcher $dispatcher
+     * @param AbstractConnection $connection
+     */
+    public function __construct(Dispatcher $dispatcher, AbstractConnection $connection)
     {
         $this->dispatcher = $dispatcher;
+        $this->connection = $connection;
     }
 
     /**
@@ -40,7 +49,7 @@ class RabbitMQConnector implements ConnectorInterface
     {
         $queue = $this->createQueue(
             Arr::get($config, 'worker', 'default'),
-            Arr::get($config, 'connection'),
+            $this->connection,
             $config['queue'],
             Arr::get($config, 'after_commit', false),
             Arr::get($config, 'options.queue', [])
