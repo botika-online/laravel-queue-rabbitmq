@@ -72,7 +72,8 @@ class LaravelQueueRabbitMQServiceProvider extends ServiceProvider
         $queue->addConnector('rabbitmq', function () {
             /** @var \PhpAmqpLib\Connection\AbstractConnection $connection */
             $connection = config('queue.connections.rabbitmq.connection', \PhpAmqpLib\Connection\AMQPLazyConnection::class)::create_connection(
-                config('queue.connections.rabbitmq.hosts', [])
+                config('queue.connections.rabbitmq.hosts', []),
+                [ 'heartbeat' => 0 ]
             );
             return new RabbitMQConnector($this->app['events'], $connection);
         });
