@@ -38,11 +38,9 @@ class RabbitMQConnector implements ConnectorInterface
      */
     public function connect(array $config): Queue
     {
-        $connection = $this->createConnection(Arr::except($config, 'options.queue'));
-
         $queue = $this->createQueue(
             Arr::get($config, 'worker', 'default'),
-            $connection,
+            Arr::get($config, 'connection'),
             $config['queue'],
             Arr::get($config, 'after_commit', false),
             Arr::get($config, 'options.queue', [])

@@ -651,11 +651,11 @@ class RabbitMQQueue extends Queue implements QueueContract
             $this->reject($this->currentJob, true);
         }
 
-        try {
-            $this->connection->close();
-        } catch (ErrorException $exception) {
-            // Ignore the exception
-        }
+        // try {
+        //     $this->connection->close();
+        // } catch (ErrorException $exception) {
+        //     // Ignore the exception
+        // }
     }
 
     /**
